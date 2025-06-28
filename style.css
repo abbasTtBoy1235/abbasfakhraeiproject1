@@ -1,22 +1,23 @@
-/* تنظیمات کلی */
 body {
   font-family: Tahoma, sans-serif;
   background: linear-gradient(135deg, #e3f2fd, #bbdefb);
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
   margin: 0;
-  flex-direction: column;
   transition: background 0.4s ease;
   direction: rtl;
 }
 
-/* دکمه تغییر حالت شب */
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+  margin-top: 20px;
+}
+
 #toggle-theme {
-  position: absolute;
-  top: 20px;
-  left: 20px;
   background: #444;
   color: white;
   border: none;
@@ -24,46 +25,35 @@ body {
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
-  z-index: 1000;
 }
 
-/* کنترل‌های بالای ماشین‌حساب */
-.top-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 320px;
-  margin: 20px auto 0;
-}
-
-/* دکمه کیبورد */
-#keyboard-btn {
-  background: #555;
+#keyboard-btn-fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #444;
   color: white;
-  padding: 8px 12px;
   border: none;
-  border-radius: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 14px;
-  transition: background-color 0.3s;
+  font-size: 18px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+#keyboard-btn-fixed:hover {
+  background: #222;
 }
 
-body.dark #keyboard-btn {
-  background: #1976d2;
-}
-
-/* ظاهر ماشین‌حساب */
 .calculator {
   background: #ffffff;
   padding: 30px;
   border-radius: 30px;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
   width: 320px;
-  transition: background-color 0.3s ease;
-  margin: 80px auto 40px auto;
+  margin: 40px 0;
 }
 
-/* بخش نمایش */
 .display-container {
   position: relative;
 }
@@ -76,38 +66,26 @@ body.dark #keyboard-btn {
   border-radius: 14px;
   border: 1px solid #bbb;
   text-align: right;
-  box-sizing: border-box;
   background-color: #fdfdfd;
   color: #222;
-  user-select: text;
-  cursor: default;
 }
 
-/* دکمه‌های بک‌اسپیس و کپی */
 #backspace, #copy {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 20px;
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 #backspace {
   left: 15px;
   color: #d32f2f;
 }
-#backspace:hover {
-  color: #b71c1c;
-}
 #copy {
   right: 15px;
   color: #2e7d32;
 }
-#copy:hover {
-  color: #1b5e20;
-}
 
-/* بخش دکمه‌ها */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -122,15 +100,11 @@ button {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  user-select: none;
 }
-
 button:hover {
   background-color: #388e3c;
 }
 
-/* بخش تاریخچه */
 .history {
   margin-top: 20px;
   background: #f1f8e9;
@@ -139,20 +113,18 @@ button:hover {
   font-size: 14px;
   max-height: 150px;
   overflow-y: auto;
-  color: #2e7d32;
 }
 
 .history h3 {
   margin-top: 0;
   font-size: 16px;
+  color: #2e7d32;
 }
-
 .history ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 #history-list li {
   display: flex;
   justify-content: space-between;
@@ -162,27 +134,18 @@ button:hover {
   padding: 6px 10px;
   border-radius: 6px;
 }
-
 #history-list li span {
   flex: 1;
   font-size: 13px;
   text-align: right;
 }
-
-/* دکمه حذف هر ورودی تاریخچه */
 .delete-entry {
   background: transparent;
   border: none;
   color: #d32f2f;
   font-size: 14px;
   cursor: pointer;
-  user-select: none;
 }
-.delete-entry:hover {
-  color: #b71c1c;
-}
-
-/* دکمه پاک کردن همه تاریخچه */
 #clear-history {
   margin-bottom: 10px;
   padding: 6px 12px;
@@ -192,37 +155,39 @@ button:hover {
   background-color: #d32f2f;
   color: white;
   cursor: pointer;
-  user-select: none;
 }
 
-/* حالت شب */
 body.dark {
   background: linear-gradient(135deg, #212121, #424242);
-  color: #ddd;
 }
-
 body.dark .calculator {
   background: #333;
 }
-
 body.dark #display {
   background-color: #555;
   color: #fff;
 }
-
 body.dark button {
   background-color: #1e88e5;
 }
-
 body.dark button:hover {
   background-color: #1565c0;
 }
-
 body.dark .history {
   background-color: #424242;
   color: #ddd;
 }
-
 body.dark #clear-history {
   background-color: #e53935;
+}
+
+/* پاورقی */
+.footer {
+  margin: 20px auto 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+body.dark .footer {
+  color: #bbb;
 }
