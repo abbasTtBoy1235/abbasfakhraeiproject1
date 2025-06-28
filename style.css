@@ -1,0 +1,129 @@
+body {
+  font-family: Tahoma;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  transition: 0.4s;
+}
+
+#toggle-theme {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #444;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+#toggle-theme:hover {
+  background-color: #222;
+}
+
+.calculator {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.15);
+  width: 340px;
+  transition: 0.3s;
+  margin: 80px auto 40px auto;
+}
+
+.display-container {
+  position: relative;
+}
+#display {
+  width: 100%;
+  font-size: 22px;
+  padding: 15px 40px 15px 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #bbb;
+  text-align: right;
+}
+
+#copy {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666;
+}
+#copy:hover {
+  color: green;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+button {
+  padding: 16px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover {
+  background-color: #388e3c;
+}
+
+.history {
+  margin-top: 25px;
+  background: #f1f8e9;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 14px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+.history h3 {
+  margin-top: 0;
+  color: #2e7d32;
+}
+.history ul {
+  list-style: disc;
+  padding-right: 20px;
+}
+
+/* حالت شب */
+body.dark {
+  background: linear-gradient(135deg, #212121, #424242);
+}
+body.dark .calculator {
+  background: #333;
+}
+body.dark #display {
+  background-color: #555;
+  color: #fff;
+}
+body.dark button {
+  background-color: #1e88e5;
+}
+body.dark button:hover {
+  background-color: #1565c0;
+}
+body.dark #toggle-theme {
+  background-color: #bbb;
+  color: #222;
+}
+body.dark .history {
+  background-color: #424242;
+  color: #ddd;
+}
+body.dark #copy {
+  color: #ccc;
+}
