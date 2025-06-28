@@ -7,16 +7,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="top-controls">
-    <button id="toggle-theme">🌙 حالت شب</button>
-    <button id="keyboard-btn">⌨️</button>
-  </div>
+  <button id="toggle-theme">🌙 حالت شب</button>
 
   <div class="calculator">
     <div class="display-container">
-      <span id="backspace" title="حذف">⌫</span>
-      <input type="text" id="display" inputmode="decimal" placeholder="محاسبه کن..." readonly>
-      <span id="copy" title="کپی">📋</span>
+      <input type="text" id="display" inputmode="decimal" autocomplete="off" placeholder="محاسبه کن...">
+      <span id="backspace" title="حذف کاراکتر">⌫</span>
+      <span id="copy" title="کپی نتیجه">📋</span>
     </div>
 
     <div class="buttons">
@@ -57,15 +54,11 @@
     </div>
 
     <div class="history">
-      <h3>تاریخچه</h3>
-      <button id="clear-history">🧹 پاک‌کردن همه</button>
+      <h3>🕓 تاریخچه محاسبات</h3>
+      <button id="clear-history">🧹 پاک‌کردن</button>
       <ul id="history-list"></ul>
     </div>
   </div>
-
-  <footer class="site-footer">
-    طراحی شده توسط عباس فخرایی | پروژه درس نرم‌افزار
-  </footer>
 
   <script src="script.js"></script>
 </body>
