@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>ماشین‌حساب علمی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,7 +11,8 @@
 
   <div class="calculator">
     <div class="display-container">
-      <input type="text" id="display" readonly>
+      <input type="text" id="display" inputmode="decimal" autocomplete="off" placeholder="محاسبه کن...">
+      <span id="backspace" title="حذف کاراکتر">⌫</span>
       <span id="copy" title="کپی نتیجه">📋</span>
     </div>
 
