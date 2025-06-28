@@ -7,9 +7,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- دکمه کیبورد مستقل پایین صفحه -->
+  <button id="keyboard-btn-fixed" title="باز کردن کیبورد">⌨️</button>
+
   <div class="top-controls">
     <button id="toggle-theme">🌙 حالت شب</button>
-    <button id="keyboard-btn" title="بازکردن کیبورد">⌨️</button>
   </div>
 
   <div class="calculator">
@@ -30,7 +32,7 @@
         readonly
       />
 
-      <!-- دکمه کپی نتیجه -->
+      <!-- دکمه کپی -->
       <span id="copy" title="کپی نتیجه">
         <svg width="18" height="18" viewBox="0 0 24 24">
           <path fill="#2e7d32" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v16h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 18H8V7h11v16Z"/>
@@ -81,6 +83,11 @@
       <ul id="history-list"></ul>
     </div>
   </div>
+
+  <!-- پاورقی -->
+  <footer class="footer">
+    طراحی شده توسط <strong>عباس فخرایی</strong> | درس پروژه نرم‌افزار
+  </footer>
 
   <script src="script.js"></script>
 </body>
