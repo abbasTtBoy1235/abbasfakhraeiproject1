@@ -1,5 +1,6 @@
+/* تنظیمات کلی */
 body {
-  font-family: Tahoma;
+  font-family: Tahoma, sans-serif;
   background: linear-gradient(135deg, #e3f2fd, #bbdefb);
   display: flex;
   justify-content: center;
@@ -7,9 +8,11 @@ body {
   height: 100vh;
   margin: 0;
   flex-direction: column;
-  transition: 0.4s;
+  transition: background 0.4s ease;
+  direction: rtl;
 }
 
+/* دکمه تغییر حالت شب */
 #toggle-theme {
   position: absolute;
   top: 20px;
@@ -24,15 +27,7 @@ body {
   z-index: 1000;
 }
 
-.calculator {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 30px;
-  box-shadow: 0 0 40px rgba(0,0,0,0.1);
-  width: 320px;
-  transition: 0.3s;
-  margin: 80px auto 40px auto;
-}
+/* کنترل‌های بالای ماشین‌حساب */
 .top-controls {
   display: flex;
   justify-content: space-between;
@@ -41,6 +36,7 @@ body {
   margin: 20px auto 0;
 }
 
+/* دکمه کیبورد */
 #keyboard-btn {
   background: #555;
   color: white;
@@ -49,11 +45,25 @@ body {
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s;
 }
 
 body.dark #keyboard-btn {
   background: #1976d2;
 }
+
+/* ظاهر ماشین‌حساب */
+.calculator {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  width: 320px;
+  transition: background-color 0.3s ease;
+  margin: 80px auto 40px auto;
+}
+
+/* بخش نمایش */
 .display-container {
   position: relative;
 }
@@ -61,7 +71,7 @@ body.dark #keyboard-btn {
 #display {
   width: 100%;
   font-size: 20px;
-  padding: 18px 50px 18px 50px;
+  padding: 18px 50px;
   margin-bottom: 20px;
   border-radius: 14px;
   border: 1px solid #bbb;
@@ -69,23 +79,35 @@ body.dark #keyboard-btn {
   box-sizing: border-box;
   background-color: #fdfdfd;
   color: #222;
+  user-select: text;
+  cursor: default;
 }
 
+/* دکمه‌های بک‌اسپیس و کپی */
 #backspace, #copy {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 20px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: color 0.3s ease;
 }
 #backspace {
   left: 15px;
+  color: #d32f2f;
+}
+#backspace:hover {
+  color: #b71c1c;
 }
 #copy {
   right: 15px;
+  color: #2e7d32;
+}
+#copy:hover {
+  color: #1b5e20;
 }
 
+/* بخش دکمه‌ها */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -100,12 +122,15 @@ button {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background-color 0.2s ease;
+  user-select: none;
 }
+
 button:hover {
   background-color: #388e3c;
 }
 
+/* بخش تاریخچه */
 .history {
   margin-top: 20px;
   background: #f1f8e9;
@@ -114,17 +139,20 @@ button:hover {
   font-size: 14px;
   max-height: 150px;
   overflow-y: auto;
+  color: #2e7d32;
 }
+
 .history h3 {
   margin-top: 0;
-  color: #2e7d32;
   font-size: 16px;
 }
+
 .history ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 #history-list li {
   display: flex;
   justify-content: space-between;
@@ -134,21 +162,27 @@ button:hover {
   padding: 6px 10px;
   border-radius: 6px;
 }
+
 #history-list li span {
   flex: 1;
   font-size: 13px;
   text-align: right;
 }
+
+/* دکمه حذف هر ورودی تاریخچه */
 .delete-entry {
   background: transparent;
   border: none;
   color: #d32f2f;
   font-size: 14px;
   cursor: pointer;
+  user-select: none;
 }
 .delete-entry:hover {
   color: #b71c1c;
 }
+
+/* دکمه پاک کردن همه تاریخچه */
 #clear-history {
   margin-bottom: 10px;
   padding: 6px 12px;
@@ -158,28 +192,37 @@ button:hover {
   background-color: #d32f2f;
   color: white;
   cursor: pointer;
+  user-select: none;
 }
 
+/* حالت شب */
 body.dark {
   background: linear-gradient(135deg, #212121, #424242);
+  color: #ddd;
 }
+
 body.dark .calculator {
   background: #333;
 }
+
 body.dark #display {
   background-color: #555;
   color: #fff;
 }
+
 body.dark button {
   background-color: #1e88e5;
 }
+
 body.dark button:hover {
   background-color: #1565c0;
 }
+
 body.dark .history {
   background-color: #424242;
   color: #ddd;
 }
+
 body.dark #clear-history {
   background-color: #e53935;
 }
