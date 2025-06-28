@@ -1,7 +1,6 @@
 function append(val) {
   const display = document.getElementById("display");
   display.value += val;
-  display.focus(); // نگه‌داشتن فوکوس برای تایپ
 }
 
 function clearDisplay() {
@@ -22,7 +21,19 @@ function calculate() {
 function addToHistory(entry) {
   const ul = document.getElementById("history-list");
   const li = document.createElement("li");
-  li.textContent = entry;
+
+  const textSpan = document.createElement("span");
+  textSpan.textContent = entry;
+
+  const delBtn = document.createElement("button");
+  delBtn.textContent = "❌";
+  delBtn.className = "delete-entry";
+  delBtn.onclick = function () {
+    li.remove();
+  };
+
+  li.appendChild(textSpan);
+  li.appendChild(delBtn);
   ul.prepend(li);
 }
 
@@ -35,15 +46,14 @@ document.getElementById("copy").addEventListener("click", function () {
   const value = document.getElementById("display").value;
   if (value !== "") {
     navigator.clipboard.writeText(value);
-    this.textContent = "✅";
+    this.innerHTML = "✅";
     setTimeout(() => {
-      this.textContent = "📋";
+      this.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <path fill="#2e7d32" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1Zm3 4H8c-1.1 0-2 .9-2 2v16h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2Zm0 18H8V7h11v16Z"/>
+        </svg>`;
     }, 1000);
   }
-});
-
-document.getElementById("clear-history").addEventListener("click", function () {
-  document.getElementById("history-list").innerHTML = "";
 });
 
 document.getElementById("backspace").addEventListener("click", function () {
@@ -51,6 +61,15 @@ document.getElementById("backspace").addEventListener("click", function () {
   display.value = display.value.slice(0, -1);
 });
 
-window.onload = function () {
-  document.getElementById("display").focus(); // باز کردن کیبورد در شروع
-};
+document.getElementById("keyboard-btn").addEventListener("click", function () {
+  const input = document.getElementById("display");
+  input.removeAttribute("readonly");
+  input.focus();
+  setTimeout(() => {
+    input.setAttribute("readonly", true);
+  }, 10000);
+});
+
+document.getElementById("clear-history").addEventListener("click", function () {
+  document.getElementById("history-list").innerHTML = "";
+});
