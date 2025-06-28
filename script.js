@@ -1,15 +1,12 @@
-// افزودن مقدار به نمایشگر
 function append(val) {
   const display = document.getElementById("display");
   display.value += val;
 }
 
-// پاک کردن نمایشگر
 function clearDisplay() {
   document.getElementById("display").value = "";
 }
 
-// محاسبه مقدار موجود در نمایشگر
 function calculate() {
   const input = document.getElementById("display").value;
   try {
@@ -21,7 +18,6 @@ function calculate() {
   }
 }
 
-// افزودن یک ورودی به تاریخچه محاسبات
 function addToHistory(entry) {
   const ul = document.getElementById("history-list");
   const li = document.createElement("li");
@@ -39,13 +35,11 @@ function addToHistory(entry) {
   ul.prepend(li);
 }
 
-// سوئیچ حالت روز/شب
 document.getElementById("toggle-theme").addEventListener("click", function () {
   document.body.classList.toggle("dark");
   this.textContent = document.body.classList.contains("dark") ? "☀️ حالت روز" : "🌙 حالت شب";
 });
 
-// کپی کردن نتیجه
 document.getElementById("copy").addEventListener("click", function () {
   const value = document.getElementById("display").value;
   if (value !== "") {
@@ -60,21 +54,18 @@ document.getElementById("copy").addEventListener("click", function () {
   }
 });
 
-// حذف آخرین کاراکتر
 document.getElementById("backspace").addEventListener("click", function () {
   const display = document.getElementById("display");
   display.value = display.value.slice(0, -1);
 });
 
-// باز کردن کیبورد برای ۱۰ ثانیه
-document.getElementById("keyboard-btn").addEventListener("click", function () {
+document.getElementById("keyboard-btn-fixed").addEventListener("click", function () {
   const input = document.getElementById("display");
   input.removeAttribute("readonly");
   input.focus();
   setTimeout(() => input.setAttribute("readonly", true), 10000);
 });
 
-// پاک کردن تمام تاریخچه
 document.getElementById("clear-history").addEventListener("click", function () {
   document.getElementById("history-list").innerHTML = "";
 });
