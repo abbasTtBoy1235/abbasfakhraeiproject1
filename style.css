@@ -29,6 +29,7 @@ body.dark {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 body.dark #toggle-theme, body.dark #keyboard-btn {
@@ -61,6 +62,12 @@ body.dark .calculator {
   border: 2px solid #ccc;
   border-radius: 12px;
   text-align: right;
+  background: white;
+}
+
+body.dark #display {
+  background: #2a2a2a;
+  color: white;
 }
 
 .buttons {
@@ -77,6 +84,11 @@ body.dark .calculator {
   border-radius: 10px;
   background-color: #e0e0e0;
   cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.buttons button:active {
+  transform: scale(0.95);
 }
 
 body.dark .buttons button {
@@ -97,6 +109,20 @@ body.dark .buttons button {
   padding: 0;
   max-height: 200px;
   overflow-y: auto;
+}
+
+#history-list li {
+  margin: 4px 0;
+  padding: 4px 8px;
+  background: #f1f1f1;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.dark #history-list li {
+  background: #2c2c2c;
 }
 
 .site-footer {
