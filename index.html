@@ -1,7 +1,128 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <link rel="stylesheet" href="style.css">
+  <style>
+/* کل محتوای CSS که دادی اینجاست */
+body {
+  font-family: Tahoma, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 320px;
+  margin: 20px auto 0;
+}
+
+#toggle-theme, #keyboard-btn {
+  background: #444;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+body.dark #toggle-theme, body.dark #keyboard-btn {
+  background: #1976d2;
+}
+
+.calculator {
+  max-width: 360px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+body.dark .calculator {
+  background-color: #1e1e1e;
+}
+
+.display-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#display {
+  flex: 1;
+  padding: 12px;
+  font-size: 20px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  text-align: right;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.buttons button {
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+body.dark .buttons button {
+  background-color: #333;
+  color: white;
+}
+
+.history {
+  margin-top: 20px;
+}
+
+.history h3 {
+  margin-bottom: 8px;
+}
+
+#history-list {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.site-footer {
+  background-color: #f1f1f1;
+  color: #444;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 13px;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 40px;
+  border-radius: 20px 20px 0 0;
+}
+
+body.dark .site-footer {
+  background-color: #333;
+  color: #bbb;
+  border-top: 1px solid #555;
+}
+</style>
   <meta charset="UTF-8">
   <title>ماشین‌حساب علمی</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
