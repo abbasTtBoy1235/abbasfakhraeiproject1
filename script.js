@@ -21,7 +21,7 @@ function addToHistory(entry) {
   const ul = document.getElementById("history-list");
   const li = document.createElement("li");
   li.textContent = entry;
-  ul.prepend(li); // نمایش از آخر به اول
+  ul.prepend(li);
 }
 
 document.getElementById("toggle-theme").addEventListener("click", function () {
@@ -38,4 +38,8 @@ document.getElementById("copy").addEventListener("click", function () {
       this.textContent = "📋";
     }, 1000);
   }
+});
+
+document.getElementById("clear-history").addEventListener("click", function () {
+  document.getElementById("history-list").innerHTML = "";
 });
