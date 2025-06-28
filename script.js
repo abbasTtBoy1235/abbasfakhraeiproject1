@@ -1,5 +1,7 @@
 function append(val) {
-  document.getElementById("display").value += val;
+  const display = document.getElementById("display");
+  display.value += val;
+  display.focus(); // نگه‌داشتن فوکوس برای تایپ
 }
 
 function clearDisplay() {
@@ -43,3 +45,12 @@ document.getElementById("copy").addEventListener("click", function () {
 document.getElementById("clear-history").addEventListener("click", function () {
   document.getElementById("history-list").innerHTML = "";
 });
+
+document.getElementById("backspace").addEventListener("click", function () {
+  let display = document.getElementById("display");
+  display.value = display.value.slice(0, -1);
+});
+
+window.onload = function () {
+  document.getElementById("display").focus(); // باز کردن کیبورد در شروع
+};
