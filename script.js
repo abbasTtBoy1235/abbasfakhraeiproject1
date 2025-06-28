@@ -23,7 +23,7 @@ function addToHistory(entry) {
   li.textContent = entry;
 
   const removeBtn = document.createElement('button');
-  removeBtn.textContent = '❌';
+  removeBtn.textContent = '✖';
   removeBtn.style.marginRight = '10px';
   removeBtn.onclick = () => li.remove();
 
@@ -31,24 +31,26 @@ function addToHistory(entry) {
   list.appendChild(li);
 }
 
-document.getElementById('toggle-theme').onclick = function() {
+document.getElementById('toggle-theme').onclick = function () {
   document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  this.textContent = isDark ? '☀️ حالت روز' : '🌙 حالت شب';
 };
 
-document.getElementById('clear-history').onclick = function() {
+document.getElementById('clear-history').onclick = function () {
   document.getElementById('history-list').innerHTML = '';
 };
 
-document.getElementById('copy').onclick = function() {
+document.getElementById('copy').onclick = function () {
   const value = document.getElementById('display').value;
   navigator.clipboard.writeText(value);
 };
 
-document.getElementById('backspace').onclick = function() {
+document.getElementById('backspace').onclick = function () {
   const display = document.getElementById('display');
   display.value = display.value.slice(0, -1);
 };
 
-document.getElementById('keyboard-btn').onclick = function() {
+document.getElementById('keyboard-btn').onclick = function () {
   document.getElementById('display').focus();
 };
